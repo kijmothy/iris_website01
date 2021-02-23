@@ -1,0 +1,115 @@
+body{
+    margin: 0px;
+    font-size: 20px;
+}
+nav{
+    height: 20px;
+    padding: 10px;
+}
+nav>.logo{
+    font-weight:bold;
+    float: left;
+}
+nav>.menu{
+    float: right;
+}
+nav>.menu>.item{
+    padding: 0 10px;
+    float: left;
+}
+/*JS動態選單*/
+nav>.mobile-menu{
+    position: fixed;/*把元件定位模式改成固定定位，位置相對於螢幕左上角，並且浮起來*/
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    text-align: center;
+    display: none;
+}
+nav>.mobile-menu>.item{
+    padding-top: 30px;
+    cursor: pointer;/*手圖案游標*/
+}
+nav>.mobile-menu>.close{
+    position: absolute;/*絕對定位，會相對mobile-menu的上一層*/
+    top: 10px;
+    right: 10px;
+    cursor: pointer;/*手圖案游標*/
+}
+/*---------*/
+nav>.mobile-menu-bar img{
+    display: none;
+}
+
+header{
+    width: 100%;
+    height: 300px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;/*上下垂直置中*/
+    justify-content: center;/*左右垂直置中*/
+    font-weight:bold;
+    background-color: #ddeef8;
+}
+
+
+main{
+    padding: 30px 0px;
+}
+main>.row{/* 容器 */
+    display: flex;
+    justify-content: center;/*左右垂直置中*/
+}
+main>.row>.mainwidth{/* 項目 */
+    width: 1200px;
+    display: flex;
+    justify-content: center;/*左右垂直置中*/
+    flex-wrap: wrap;/* 重要!換行的關鍵 */
+}
+main>.row>.mainwidth>.bg{
+    width: 25%;
+    padding: 10px;
+    box-sizing: border-box;/*總寬度不變，增加width.padding.margin...都往內縮*/
+}
+main>.row>.mainwidth>.bg>.image{
+    width: 100%;
+    background-image: url(bg01.jpg);
+    background-size: cover;
+    height: 200px;
+}
+main>.row>.mainwidth>.bg>.title{
+    background-color: #ddeef8;
+    height: 50px;
+    display: flex;
+    align-items: center;/*上下垂直置中*/
+    justify-content: center;/*左右垂直置中*/
+}
+
+@media (max-width:1200px){
+    nav>.mobile-menu-bar img{
+        display: none;
+    }
+    main>.row>.mainwidth>.bg{
+        width: 45%;
+    }
+    main>.row>.mainwidth>.bg>.image{
+        height: 350px;
+    }
+}
+
+@media (max-width:600px){
+    main>.row>.mainwidth>.bg{
+        width: 90%;
+    }
+    nav>.menu{
+        display: none;
+    }
+    nav>.mobile-menu-bar img{
+        width: 25px;
+        display: flex;/*漢堡顯示出現*/
+        cursor: pointer;/*手圖案游標*/
+        float: right;
+    }
+}
